@@ -10,10 +10,6 @@
 //*********************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MyElectricCar.Common
@@ -27,7 +23,7 @@ namespace MyElectricCar.Common
     /// </summary>
     public class RelayCommand : ICommand
     {
-        private readonly Action _execute;
+        private readonly Action<object> _execute;
         private readonly Func<bool> _canExecute;
 
         /// <summary>
@@ -39,7 +35,7 @@ namespace MyElectricCar.Common
         /// Creates a new command that can always execute.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
-        public RelayCommand(Action execute)
+        public RelayCommand(Action<object> execute)
             : this(execute, null)
         {
         }
@@ -49,7 +45,7 @@ namespace MyElectricCar.Common
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         /// <param name="canExecute">The execution status logic.</param>
-        public RelayCommand(Action execute, Func<bool> canExecute)
+        public RelayCommand(Action<object> execute, Func<bool> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");
@@ -75,9 +71,9 @@ namespace MyElectricCar.Common
         /// <param name="parameter">
         /// Data used by the command. If the command does not require data to be passed, this object can be set to null.
         /// </param>
-        public void Execute(object parameter)
+        public void Execute(object parameter = null)
         {
-            _execute();
+            _execute.Invoke(parameter);
         }
 
         /// <summary>
@@ -95,3 +91,4 @@ namespace MyElectricCar.Common
         }
     }
 }
+

@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="MyElectricCar.View.ChargePointAuthView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyElectricCar"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ChargePointAuthViewModel}"
+    NavigationCacheMode="Disabled"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="UsernameText.(RelativePanel.RightOf)" Value="UsernameLabel" />
+                        <Setter Target="PasswordText.(RelativePanel.RightOf)" Value="PasswordLabel" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="UsernameText.(RelativePanel.Below)" Value="UsernameLabel" />
+                        <Setter Target="PasswordText.(RelativePanel.Below)" Value="PasswordLabel" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel x:Name="HeaderPanel"
+            Grid.Row="0"
+            Background="GhostWhite">
+            <Image x:Name="ChargePointLogo"
+                   Source="ms-appx:///Assets/thirdparty/chargepoint_logo.png"
+                   Width="200" 
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                   RelativePanel.AlignVerticalCenterWithPanel="True"
+                   VerticalAlignment="Center" />
+            <TextBlock Text="login"
+                       RelativePanel.AlignBottomWith="ChargePointLogo"
+                       RelativePanel.AlignHorizontalCenterWith="ChargePointLogo" Margin="0,0,0,-10"/>
+        </RelativePanel>
+
+        <RelativePanel x:Name="ContentPanel" Margin="20" Grid.Row="1">
+            <RelativePanel x:Name="UsernamePanel">
+                <TextBlock x:Name="UsernameLabel" Text="Username" Margin="0,5,10,5"/>
+                <TextBox x:Name="UsernameText" Width="300" Text="{Binding Username, Mode=TwoWay}"/>
+            </RelativePanel>
+
+            <RelativePanel x:Name="PasswordPanel" RelativePanel.Below="UsernamePanel" Margin="0,20,0,0">
+                <TextBlock x:Name="PasswordLabel" Margin="0,5,10,5" Text="Password" />
+                <PasswordBox x:Name="PasswordText"  Width="300" Password="{Binding Password, Mode=TwoWay}"/>
+            </RelativePanel>
+
+            <Button Content="Connect"
+                    Background="#FFFF7A14"
+                    Foreground="White" 
+                    Padding="40,8" 
+                    RelativePanel.Below="PasswordPanel" 
+                    Margin="0,30,0,0"
+                    Command="{Binding ConnectCommand}"/>
+        </RelativePanel>
+    </Grid>
+</Page>

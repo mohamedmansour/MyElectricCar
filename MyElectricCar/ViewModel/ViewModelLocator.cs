@@ -22,36 +22,25 @@ namespace MyElectricCar.ViewModel
         {
             //QuestionStore store = new QuestionStore();
             //InitializeStore(store);
-            //modelSet.Add("QuestionListViewModel", new QuestionListViewModel(store));
+            modelSet.Add("ChargePointAuthViewModel", new ChargePointAuthViewModel());
             //modelSet.Add("QuestionViewModel", new QuestionViewModel(store));
         }
+
+        /// <summary>
+        /// The ChargePointAuthView is databound to this property.
+        /// </summary>
+        public ChargePointAuthViewModel ChargePointAuthViewModel
+        {
+            get
+            {
+                return (ChargePointAuthViewModel)modelSet["ChargePointAuthViewModel"];
+            }
+        }
+
         /*
         private async void InitializeStore(QuestionStore store)
         {
             await store.LoadQuestions();
-        }
-
-        /// <summary>
-        /// QuestionList (main page) view model. The QuestionListView is databound to this property.
-        /// </summary>
-        public QuestionListViewModel QuestionListViewModel
-        {
-            get
-            {
-                return (QuestionListViewModel)modelSet["QuestionListViewModel"];
-            }
-        }
-
-        /// <summary>
-        /// Question (detail page) view model. QuestionDetails page is databound to this property.
-        /// </summary>
-        public QuestionViewModel QuestionViewModel
-        {
-            get
-            {
-                return (QuestionViewModel)modelSet["QuestionViewModel"];
-            }
-        }
-        */
+        }*/
     }
 }

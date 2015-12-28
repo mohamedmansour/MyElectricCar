@@ -138,7 +138,7 @@ namespace MyElectricCar.Common
                 if (_goBackCommand == null)
                 {
                     _goBackCommand = new RelayCommand(
-                        () => this.GoBack(),
+                        (parameter) => this.GoBack(),
                         () => this.CanGoBack());
                 }
                 return _goBackCommand;
@@ -162,7 +162,7 @@ namespace MyElectricCar.Common
                 if (_goForwardCommand == null)
                 {
                     _goForwardCommand = new RelayCommand(
-                        () => this.GoForward(),
+                        (parameter) => this.GoForward(),
                         () => this.CanGoForward());
                 }
                 return _goForwardCommand;
