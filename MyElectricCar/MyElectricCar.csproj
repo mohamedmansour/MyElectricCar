@@ -152,12 +152,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyElectricCar.Model\MyElectricCar.Model.csproj">
-      <Project>{36323550-8ebe-425c-9513-18c8cb7c131c}</Project>
-      <Name>MyElectricCar.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
