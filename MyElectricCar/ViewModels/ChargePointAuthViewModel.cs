@@ -11,8 +11,8 @@ namespace MyElectricCar.ViewModels
         private ICommand _connectCommand;
         private string _username;
         private string _password;
-        private ChargePointService _chargePointService;
-        private UserService _userService;
+        private readonly ChargePointService _chargePointService;
+        private readonly UserService _userService;
 
         public ChargePointAuthViewModel(ChargePointService chargePointService, UserService userService)
         {
@@ -63,9 +63,9 @@ namespace MyElectricCar.ViewModels
             var auth = await _chargePointService.AuthenticateAsync(this.Username, this.Password);
             if (auth.Status)
             {
-                _userService.AuthToken = auth.AuthToken;
+                _userService.AccessToken = auth.AuthToken;
                 _userService.Id = auth.UserId;
-                await new MessageDialog("Connected").ShowAsync();
+                App.NavigationService.Navigate<Views.MainPage>();
             }
             else
             {

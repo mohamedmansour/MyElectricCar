@@ -27,6 +27,8 @@ namespace MyElectricCar
         {
             builder.RegisterType<UserService>().As<UserService>();
             builder.RegisterType<ChargePointService>().As<ChargePointService>();
+
+            builder.RegisterType<MainViewModel>().As<MainViewModel>();
             builder.RegisterType<ChargePointAuthViewModel>().As<ChargePointAuthViewModel>();
         }
 
@@ -38,6 +40,17 @@ namespace MyElectricCar
             get
             {
                 return _container.Resolve<ChargePointAuthViewModel>();
+            }
+        }
+
+        /// <summary>
+        /// The MainView is databound to this property.
+        /// </summary>
+        public MainViewModel MainViewModel
+        {
+            get
+            {
+                return _container.Resolve<MainViewModel>();
             }
         }
 

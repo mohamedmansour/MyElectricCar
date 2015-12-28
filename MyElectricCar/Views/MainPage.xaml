@@ -5,9 +5,10 @@
     xmlns:local="using:MyElectricCar"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+        <Button Content="Disconnect" Command="{Binding DisconnectCommand}" />
     </Grid>
 </Page>

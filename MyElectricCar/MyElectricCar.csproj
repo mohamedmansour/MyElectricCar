@@ -112,6 +112,7 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />
     <Compile Include="Services\ChargePointService.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\ChargePointAuthView.xaml.cs">
       <DependentUpon>ChargePointAuthView.xaml</DependentUpon>
     </Compile>

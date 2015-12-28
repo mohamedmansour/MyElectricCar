@@ -9,26 +9,26 @@ namespace MyElectricCar.Services
 {
     public class UserService
     {
-        private const string AuthAccessToken = "AuthAcessToken";
-        private const string AuthUserId = "AuthUserId";
+        private const string SettingAccessToken = "AuthAcessToken";
+        private const string SettingUserId = "AuthUserId";
 
         public bool IsAuthenticated
         {
             get
             {
-                return String.IsNullOrWhiteSpace(AuthUserId) ? false : true;
+                return String.IsNullOrWhiteSpace(AccessToken) ? false : true;
             }
         }
 
-        public string AuthToken
+        public string AccessToken
         {
             get
             {
-                return LocalStorageHelper.GetOrDefault<string>(AuthAccessToken);
+                return LocalStorageHelper.GetOrDefault<string>(SettingAccessToken);
             }
             set
             {
-                LocalStorageHelper.Set(AuthAccessToken, value);
+                LocalStorageHelper.Set(SettingAccessToken, value);
             }
         }
 
@@ -36,12 +36,18 @@ namespace MyElectricCar.Services
         {
             get
             {
-                return LocalStorageHelper.GetOrDefault<string>(AuthUserId);
+                return LocalStorageHelper.GetOrDefault<string>(SettingUserId);
             }
             set
             {
-                LocalStorageHelper.Set(AuthUserId, value);
+                LocalStorageHelper.Set(SettingUserId, value);
             }
+        }
+
+        public void Clear()
+        {
+            LocalStorageHelper.Remove(SettingAccessToken);
+            LocalStorageHelper.Remove(SettingUserId);
         }
     }
 }
