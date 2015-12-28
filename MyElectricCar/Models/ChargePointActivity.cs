@@ -2,6 +2,7 @@
 
 namespace MyElectricCar.Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class ChargePointActivity<T>
     {
         [JsonProperty("charging_activity")]

@@ -2,6 +2,7 @@
 
 namespace MyElectricCar.Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class ChargePointActivityRequest
     {
         [JsonProperty("page_size")]
