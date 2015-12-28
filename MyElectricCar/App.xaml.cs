@@ -43,6 +43,14 @@ namespace MyElectricCar
         public static NavigationService NavigationService { get; private set; }
 
         /// <summary>
+        /// Gets access to all the services view models.
+        /// </summary>
+        public Locator ServiceLocator
+        {
+            get { return this.Resources["Locator"] as Locator; }
+        }
+
+        /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
@@ -70,13 +78,21 @@ namespace MyElectricCar
                 Window.Current.Content = rootFrame;
             }
 
+            // When the navigation stack isn't restored navigate to the first page,
+            // configuring the new page by passing required information as a navigation
+            // parameter
             if (rootFrame.Content == null)
             {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(Views.ChargePointAuthView), e.Arguments);
+                if (ServiceLocator.UserService.IsAuthenticated)
+                {
+                    rootFrame.Navigate(typeof(Views.MainPage), e.Arguments);
+                }
+                else
+                {
+                    rootFrame.Navigate(typeof(Views.ChargePointAuthView), e.Arguments);
+                }
             }
+
             // Ensure the current window is active
             Window.Current.Activate();
         }

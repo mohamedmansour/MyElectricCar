@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyElectricCar.ViewModel.Services
+namespace MyElectricCar.Services
 {
     public class ChargePointService
     {

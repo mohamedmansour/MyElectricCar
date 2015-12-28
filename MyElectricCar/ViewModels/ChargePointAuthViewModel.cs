@@ -1,10 +1,6 @@
 ﻿using MyElectricCar.Commons;
-using MyElectricCar.ViewModel.Services;
+using MyElectricCar.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
 
@@ -15,11 +11,13 @@ namespace MyElectricCar.ViewModels
         private ICommand _connectCommand;
         private string _username;
         private string _password;
-        private ChargePointService _service;
+        private ChargePointService _chargePointService;
+        private UserService _userService;
 
-        public ChargePointAuthViewModel(ChargePointService service)
+        public ChargePointAuthViewModel(ChargePointService chargePointService, UserService userService)
         {
-            _service = service;
+            _chargePointService = chargePointService;
+            _userService = userService;
         }
 
         public ICommand ConnectCommand
@@ -62,9 +60,11 @@ namespace MyElectricCar.ViewModels
 
         private async void Connect(object parameter)
         {
-            var auth = await _service.AuthenticateAsync(this.Username, this.Password);
+            var auth = await _chargePointService.AuthenticateAsync(this.Username, this.Password);
             if (auth.Status)
             {
+                _userService.AuthToken = auth.AuthToken;
+                _userService.Id = auth.UserId;
                 await new MessageDialog("Connected").ShowAsync();
             }
             else
