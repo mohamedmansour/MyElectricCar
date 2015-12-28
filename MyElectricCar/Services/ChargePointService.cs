@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MyElectricCar.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,26 +13,33 @@ namespace MyElectricCar.ViewModel.Services
     {
         private readonly HttpClient _client = new HttpClient();
 
-        public async Task<bool> AuthenticateAsync(string user, string password)
+        /// <summary>
+        /// Authenticates Async into the ChargePoint portal.
+        /// </summary>
+        /// <param name="username">The username usually the email.</param>
+        /// <param name="password">The plaintext password.</param>
+        /// <returns>AuthResponse model</returns>
+        public async Task<ChargePointAuthResponse> AuthenticateAsync(string username, string password)
         {
-            /*
-            "{\"version\":\"54\",
-                \"validate_login\":\\
+            // Post data that prepares the auth request.
+            var authData = new ChargePointAuth<ChargePointAuthRequest>
+            {
+                ValidateLogin = new ChargePointAuthRequest
                 {
-                    \"disable_token\":false,\
-                    "password\":\"{0}\",
-                    \"device_os\":\"iOS\",\
-                    "user_name\":\"{1}\"\\
-               }\\}
-        */
-            string postData = string.Format("", password, user);
+                    DeviceOS = "iOS",
+                    DisableToken = false,
+                    Password = password,
+                    Username = username
+                }
+            };
             HttpResponseMessage response = await _client.PostAsync(
                 "https://webservices.chargepoint.com/backend.php/mobileapi/v3",
-                new StringContent(postData));
+                new StringContent(JsonConvert.SerializeObject(authData)));
 
-            var responseString = await response.Content.ReadAsStringAsync();
-
-            return true;
+            // Deserialized response.
+            var authResponse = JsonConvert.DeserializeObject<ChargePointAuth<ChargePointAuthResponse>>(
+                await response.Content.ReadAsStringAsync());
+            return authResponse.ValidateLogin;
         }
     }
 }

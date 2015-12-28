@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 
 namespace MyElectricCar.ViewModels
 {
@@ -61,13 +62,14 @@ namespace MyElectricCar.ViewModels
 
         private async void Connect(object parameter)
         {
-            if (await _service.AuthenticateAsync(this.Username, this.Password))
+            var auth = await _service.AuthenticateAsync(this.Username, this.Password);
+            if (auth.Status)
             {
-                System.Diagnostics.Debug.WriteLine("Connected!");
+                await new MessageDialog("Connected").ShowAsync();
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine("Denied!");
+                await new MessageDialog("Denied: " + auth.Error).ShowAsync();
             }
         }
     }

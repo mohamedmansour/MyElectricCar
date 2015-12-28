@@ -105,6 +105,9 @@
     <Compile Include="Commons\RelayCommand.cs" />
     <Compile Include="Commons\SuspensionManager.cs" />
     <Compile Include="Commons\VisibilityConverter.cs" />
+    <Compile Include="Models\ChargePointAuth.cs" />
+    <Compile Include="Models\ChargePointAuthResponse.cs" />
+    <Compile Include="Models\ChargePointAuthRequest.cs" />
     <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />
     <Compile Include="Services\ChargePointService.cs" />
     <Compile Include="Views\ChargePointAuthView.xaml.cs">
@@ -153,9 +156,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
