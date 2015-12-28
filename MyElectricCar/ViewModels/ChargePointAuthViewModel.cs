@@ -41,7 +41,7 @@ namespace MyElectricCar.ViewModels
             set
             {
                 _username = value;
-                NotifyPropertyChanged("Username");
+                NotifyPropertyChanged();
             }
         }
 
@@ -54,7 +54,7 @@ namespace MyElectricCar.ViewModels
             set
             {
                 _password = value;
-                NotifyPropertyChanged("Password");
+                NotifyPropertyChanged();
             }
         }
 
@@ -64,7 +64,7 @@ namespace MyElectricCar.ViewModels
             if (auth.Status)
             {
                 _userService.AccessToken = auth.AuthToken;
-                _userService.Id = auth.UserId;
+                _userService.Id = long.Parse(auth.UserId);
                 App.NavigationService.Navigate<Views.MainPage>();
             }
             else

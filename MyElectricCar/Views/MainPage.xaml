@@ -7,8 +7,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
     mc:Ignorable="d">
-
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0">
         <Button Content="Disconnect" Command="{Binding DisconnectCommand}" />
+        </RelativePanel>
+        <ListBox x:Name="questionListBox" Grid.Row="1"
+                     ItemsSource="{Binding ChargingSessions}" 
+                     Margin="20"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontSize="18.667" FontWeight="Bold">
+                            <Run Text="{Binding CompanyName}" />
+                            <Run Text="{Binding Address1}" />
+                            <Run Text="{Binding City}" />
+                        </TextBlock>
+                        <TextBlock Margin="20,0,0,0">
+                            <Run Text="$" />
+                            <Run Text="{Binding TotalAmount}" />
+                            <Run Text="{Binding EnergyKwh}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

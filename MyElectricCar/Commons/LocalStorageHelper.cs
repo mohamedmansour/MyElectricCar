@@ -77,7 +77,7 @@ namespace MyElectricCar.Commons
                     obj = JsonConvert.DeserializeObject<T>(serializedSetting);
                     return true;
                 }
-                catch (JsonException e)
+                catch (JsonException)
                 {
                     obj = default(T);
                     return false;

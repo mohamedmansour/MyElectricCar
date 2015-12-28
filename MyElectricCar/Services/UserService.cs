@@ -32,11 +32,11 @@ namespace MyElectricCar.Services
             }
         }
 
-        public string Id
+        public long Id
         {
             get
             {
-                return LocalStorageHelper.GetOrDefault<string>(SettingUserId);
+                return LocalStorageHelper.GetOrDefault<long>(SettingUserId);
             }
             set
             {

@@ -37,5 +37,26 @@ namespace MyElectricCar.Services
                 await response.Content.ReadAsStringAsync());
             return authResponse.ValidateLogin;
         }
+
+        public async Task<ChargePointActivityResponse> ChargingActivityAsync(int pageSize, long userId)
+        {
+            // Post data that prepares the auth request.
+            var queryData = new ChargePointActivity<ChargePointActivityRequest>
+            {
+                UserId = userId,
+                ChargingActivity = new ChargePointActivityRequest
+                {
+                    PageSize = 10
+                }
+            };
+
+            HttpResponseMessage response = await _client.GetAsync(
+                "https://mc.chargepoint.com/map-prod/v2?" + JsonConvert.SerializeObject(queryData));
+
+            // Deserialized response.
+            var authResponse = JsonConvert.DeserializeObject<ChargePointActivity<ChargePointActivityResponse>>(
+                await response.Content.ReadAsStringAsync());
+            return authResponse.ChargingActivity;
+        }
     }
 }
