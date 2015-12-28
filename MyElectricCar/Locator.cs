@@ -1,25 +1,27 @@
 ﻿using Autofac;
+using MyElectricCar.ViewModel.Services;
+using MyElectricCar.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyElectricCar.ViewModel
+namespace MyElectricCar
 {
     /// <summary>
-    /// ViewModelLocator ensures that viewmodels can be instantiated with a common reference to the QuestionStore. 
+    /// Locator ensures that viewmodels can be instantiated with a common reference
     /// This allows for easier decoupling of the store implementation and the view models, and allows for 
     /// less viewmodel specific code in the views.
     /// </summary>
-    public class ViewModelLocator
+    public class Locator
     {
         private IContainer _container;
 
         /// <summary>
         /// Set up all of the known view models, and instantiate the question repository.
         /// </summary>
-        public ViewModelLocator()
+        public Locator()
         {
             var builder = new ContainerBuilder();
             RegisterTypes(builder);
@@ -28,6 +30,7 @@ namespace MyElectricCar.ViewModel
 
         private void RegisterTypes(ContainerBuilder builder)
         {
+            builder.RegisterType<ChargePointService>().As<ChargePointService>();
             builder.RegisterType<ChargePointAuthViewModel>().As<ChargePointAuthViewModel>();
         }
 

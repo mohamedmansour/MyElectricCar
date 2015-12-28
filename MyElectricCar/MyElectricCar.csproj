@@ -98,23 +98,24 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\DateTimeOffsetConverter.cs" />
-    <Compile Include="Common\INavigationService.cs" />
-    <Compile Include="Common\NavigationHelper.cs" />
-    <Compile Include="Common\NavigationService.cs" />
-    <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="Common\VisibilityConverter.cs" />
-    <Compile Include="ViewModel\ChargePointAuthViewModel.cs" />
-    <Compile Include="View\ChargePointAuthView.xaml.cs">
+    <Compile Include="Commons\DateTimeOffsetConverter.cs" />
+    <Compile Include="Commons\INavigationService.cs" />
+    <Compile Include="Commons\NavigationHelper.cs" />
+    <Compile Include="Commons\NavigationService.cs" />
+    <Compile Include="Commons\RelayCommand.cs" />
+    <Compile Include="Commons\SuspensionManager.cs" />
+    <Compile Include="Commons\VisibilityConverter.cs" />
+    <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />
+    <Compile Include="Services\ChargePointService.cs" />
+    <Compile Include="Views\ChargePointAuthView.xaml.cs">
       <DependentUpon>ChargePointAuthView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Locator.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -138,11 +139,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\ChargePointAuthView.xaml">
+    <Page Include="Views\ChargePointAuthView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -152,7 +153,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

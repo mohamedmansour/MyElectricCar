@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MyElectricCar.ViewModel
+namespace MyElectricCar.ViewModels
 {
     /// <summary>
     /// Base class for all view models. Contains the common implementation of 

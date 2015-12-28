@@ -12,7 +12,7 @@
 using System;
 using System.Windows.Input;
 
-namespace MyElectricCar.Common
+namespace MyElectricCar.Commons
 {
     /// <summary>
     /// A command whose sole purpose is to relay its functionality 

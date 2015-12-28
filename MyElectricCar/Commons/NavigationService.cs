@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace MyElectricCar.Common
+namespace MyElectricCar.Commons
 {
     /// <summary>
     /// Navigation system that decouples the View Model from knowledge of the View for navigation

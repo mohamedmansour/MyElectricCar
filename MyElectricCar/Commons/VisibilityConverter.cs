@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace MyElectricCar.Common
+namespace MyElectricCar.Commons
 {
     /// <summary>
     /// Convert a Boolean status to Visibility.Visible (true) or Visibility.Collapsed (false).

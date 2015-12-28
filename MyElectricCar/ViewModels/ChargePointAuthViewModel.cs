@@ -1,4 +1,5 @@
-﻿using MyElectricCar.Common;
+﻿using MyElectricCar.Commons;
+using MyElectricCar.ViewModel.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,13 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MyElectricCar.ViewModel
+namespace MyElectricCar.ViewModels
 {
     public class ChargePointAuthViewModel : ViewModelBase
     {
         private ICommand _connectCommand;
         private string _username;
         private string _password;
+        private ChargePointService _service;
+
+        public ChargePointAuthViewModel(ChargePointService service)
+        {
+            _service = service;
+        }
 
         public ICommand ConnectCommand
         {
@@ -54,7 +61,14 @@ namespace MyElectricCar.ViewModel
 
         private async void Connect(object parameter)
         {
-            System.Diagnostics.Debug.WriteLine("Connecting");
+            if (await _service.AuthenticateAsync(this.Username, this.Password))
+            {
+                System.Diagnostics.Debug.WriteLine("Connected!");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Denied!");
+            }
         }
     }
 }

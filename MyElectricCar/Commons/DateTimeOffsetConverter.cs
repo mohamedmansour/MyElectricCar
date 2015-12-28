@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
-namespace MyElectricCar.Common
+namespace MyElectricCar.Commons
 {
     /// <summary>
     /// Convert a DateTime to a DateTimeOffset for use by a DatePicker, and back

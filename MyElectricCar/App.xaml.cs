@@ -1,4 +1,4 @@
-﻿using MyElectricCar.Common;
+﻿using MyElectricCar.Commons;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -75,7 +75,7 @@ namespace MyElectricCar
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(View.ChargePointAuthView), e.Arguments);
+                rootFrame.Navigate(typeof(Views.ChargePointAuthView), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

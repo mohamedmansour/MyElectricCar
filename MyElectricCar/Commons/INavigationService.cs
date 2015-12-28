@@ -11,7 +11,7 @@
 
 using System;
 
-namespace MyElectricCar.Common
+namespace MyElectricCar.Commons
 {
     /// <summary>
     /// Navigation service interface, allows a test implementation to be substituted in its place.
