@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using MyElectricCar.Services;
 using MyElectricCar.ViewModels;
+using MyElectricCar.ViewModels.Interfaces;
 
 namespace MyElectricCar
 {
@@ -28,29 +29,29 @@ namespace MyElectricCar
             builder.RegisterType<UserService>().As<UserService>();
             builder.RegisterType<ChargePointService>().As<ChargePointService>();
 
-            builder.RegisterType<MainViewModel>().As<MainViewModel>();
-            builder.RegisterType<ChargePointAuthViewModel>().As<ChargePointAuthViewModel>();
+            builder.RegisterType<MainViewModel>().As<IMainViewModel>();
+            builder.RegisterType<ChargePointAuthViewModel>().As<IChargePointAuthViewModel>();
         }
 
         /// <summary>
         /// The ChargePointAuthView is databound to this property.
         /// </summary>
-        public ChargePointAuthViewModel ChargePointAuthViewModel
+        public IChargePointAuthViewModel ChargePointAuthViewModel
         {
             get
             {
-                return _container.Resolve<ChargePointAuthViewModel>();
+                return _container.Resolve<IChargePointAuthViewModel>();
             }
         }
 
         /// <summary>
         /// The MainView is databound to this property.
         /// </summary>
-        public MainViewModel MainViewModel
+        public IMainViewModel MainViewModel
         {
             get
             {
-                return _container.Resolve<MainViewModel>();
+                return _container.Resolve<IMainViewModel>();
             }
         }
 

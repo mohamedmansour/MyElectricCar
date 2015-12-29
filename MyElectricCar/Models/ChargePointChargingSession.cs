@@ -21,7 +21,7 @@ namespace MyElectricCar.Models
         public string Address1 { get; set; }
 
         [JsonProperty("vehicle_id")]
-        public long vehicle_id { get; set; }
+        public long VehicleId { get; set; }
 
         [JsonProperty("state_name")]
         public string StateName { get; set; }

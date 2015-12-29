@@ -1,12 +1,13 @@
 ﻿using MyElectricCar.Commons;
 using MyElectricCar.Models;
 using MyElectricCar.Services;
+using MyElectricCar.ViewModels.Interfaces;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace MyElectricCar.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase, IMainViewModel
     {
         private readonly UserService _userService;
         private readonly ChargePointService _chargePointService;
@@ -38,6 +39,7 @@ namespace MyElectricCar.ViewModels
             {
                 return _chargingSessions;
             }
+
             private set
             {
                 _chargingSessions = value;

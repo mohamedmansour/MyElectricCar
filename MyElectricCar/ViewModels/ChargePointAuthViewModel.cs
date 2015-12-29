@@ -1,12 +1,13 @@
 ﻿using MyElectricCar.Commons;
 using MyElectricCar.Services;
+using MyElectricCar.ViewModels.Interfaces;
 using System;
 using System.Windows.Input;
 using Windows.UI.Popups;
 
 namespace MyElectricCar.ViewModels
 {
-    public class ChargePointAuthViewModel : ViewModelBase
+    public class ChargePointAuthViewModel : ViewModelBase, IChargePointAuthViewModel
     {
         private ICommand _connectCommand;
         private string _username;
