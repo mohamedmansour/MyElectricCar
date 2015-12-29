@@ -16,16 +16,37 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0">
-        <Button Content="Disconnect" Command="{Binding DisconnectCommand}" />
+            <TextBlock x:Name="VehicleText" Text="{Binding PrimaryVehicle.Make}"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"/>
+            <Button x:Name="DisconnectButton"
+                    Content="Disconnect" 
+                    Command="{Binding DisconnectCommand}" 
+                    RelativePanel.Below="VehicleText"/>
+
+            <StackPanel Orientation="Vertical"
+                        RelativePanel.Below="DisconnectButton" 
+                        Visibility="{Binding ChargingCurrent, Converter={StaticResource VisibilityConverter}}">
+                <TextBlock FontSize="18" FontWeight="Bold">
+                            <Run Text="{Binding ChargingCurrent.CompanyName}" />
+                            <Run Text="{Binding ChargingCurrent.Address1}" />
+                            <Run Text="{Binding ChargingCurrent.City}" />
+                </TextBlock>
+                <TextBlock Margin="20,0,0,0">
+                            <Run Text="{Binding ChargingCurrent.PowerKw}" />
+                            <Run Text="{Binding ChargingCurrent.EnergyKwh}" />
+                </TextBlock>
+            </StackPanel>
         </RelativePanel>
-        <ListBox x:Name="questionListBox" Grid.Row="1"
-                     ItemsSource="{Binding ChargingSessions}" 
-                     Margin="20"
-                     ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ListBox x:Name="RecentHistoryList" 
+                 Grid.Row="1"
+                 ItemsSource="{Binding ChargingHistory}" 
+                 Margin="20"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontSize="18.667" FontWeight="Bold">
+                        <TextBlock FontSize="18" FontWeight="Bold">
                             <Run Text="{Binding CompanyName}" />
                             <Run Text="{Binding Address1}" />
                             <Run Text="{Binding City}" />

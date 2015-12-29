@@ -3,6 +3,7 @@ using MyElectricCar.Models;
 using MyElectricCar.Services;
 using MyElectricCar.ViewModels.Interfaces;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace MyElectricCar.ViewModels
@@ -13,7 +14,10 @@ namespace MyElectricCar.ViewModels
         private readonly ChargePointService _chargePointService;
 
         private ICommand _disconnectCommand;
-        private ObservableCollection<ChargePointChargingSession> _chargingSessions;
+
+        private ChargePointChargingSession _chargingCurrent;
+        private ObservableCollection<ChargePointChargingSession> _chargingHistory;
+        private ChargePointVehicleInfo _primaryVehicle;
 
         public MainViewModel(UserService userService, ChargePointService chargePointService)
         {
@@ -33,16 +37,44 @@ namespace MyElectricCar.ViewModels
             }
         }
 
-        public ObservableCollection<ChargePointChargingSession> ChargingSessions
+        public ObservableCollection<ChargePointChargingSession> ChargingHistory
         {
             get
             {
-                return _chargingSessions;
+                return _chargingHistory;
             }
 
             private set
             {
-                _chargingSessions = value;
+                _chargingHistory = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ChargePointChargingSession ChargingCurrent
+        {
+            get
+            {
+                return _chargingCurrent;
+            }
+
+            private set
+            {
+                _chargingCurrent = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ChargePointVehicleInfo PrimaryVehicle
+        {
+            get
+            {
+                return _primaryVehicle;
+            }
+
+            private set
+            {
+                _primaryVehicle = value;
                 NotifyPropertyChanged();
             }
         }
@@ -50,7 +82,15 @@ namespace MyElectricCar.ViewModels
         public async void QueryChargingStations()
         {
             var response = await _chargePointService.ChargingActivityAsync(10, _userService.Id);
-            ChargingSessions = new ObservableCollection<ChargePointChargingSession>(response.SessionInfo);
+            var currentChargingIndex = response.SessionInfo.FindIndex(s => s.EnableStopCharging);
+            if (currentChargingIndex != -1)
+            {
+                ChargingCurrent = response.SessionInfo[currentChargingIndex];
+                response.SessionInfo.RemoveAt(currentChargingIndex);
+            }
+
+            ChargingHistory = new ObservableCollection<ChargePointChargingSession>(response.SessionInfo);
+            PrimaryVehicle = response.VehicleInfo.FirstOrDefault(v => v.Value.IsPrimaryVehicle).Value;
         }
 
         private void Disconnect(object parameter)

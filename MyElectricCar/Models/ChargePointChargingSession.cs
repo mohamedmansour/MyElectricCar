@@ -74,6 +74,9 @@ namespace MyElectricCar.Models
         [JsonProperty("port_level")]
         public long PortLevel { get; set; }
 
+        [JsonProperty("enable_stop_charging")]
+        public bool EnableStopCharging { get; set; }
+
         [JsonProperty("start_time")]
         public long StartTime { get; set; }
 

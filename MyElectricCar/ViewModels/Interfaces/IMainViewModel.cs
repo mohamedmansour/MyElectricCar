@@ -8,6 +8,10 @@ namespace MyElectricCar.ViewModels.Interfaces
     {
         ICommand DisconnectCommand { get; }
 
-        ObservableCollection<ChargePointChargingSession> ChargingSessions { get; }
+        ChargePointChargingSession ChargingCurrent { get; }
+
+        ObservableCollection<ChargePointChargingSession> ChargingHistory { get; }
+
+        ChargePointVehicleInfo PrimaryVehicle { get; }
     }
 }
