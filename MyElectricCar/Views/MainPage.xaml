@@ -21,7 +21,7 @@
                    RelativePanel.AlignRightWithPanel="True" Stretch="Fill"/>
             
             <Button x:Name="DisconnectButton"
-                    Content="{Binding PrimaryVehicle.Make,
+                    Content="{Binding PrimaryVehicle.VehicleName,
                                 Converter={StaticResource StringFormatConverter},
                                 ConverterParameter='Disconnect {0}'}"
                     Command="{Binding DisconnectCommand}" 

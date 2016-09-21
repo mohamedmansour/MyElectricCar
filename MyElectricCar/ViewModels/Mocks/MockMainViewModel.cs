@@ -127,7 +127,7 @@ namespace MyElectricCar.ViewModels.Mocks
             {
                 return new ChargePointVehicleInfo
                 {
-                    Model = "i3 with Range",
+                    Model = "i3",
                     Year = 2014,
                     VehicleId = 277903,
                     IsPrimaryVehicle = true,

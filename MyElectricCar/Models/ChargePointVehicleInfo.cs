@@ -25,5 +25,7 @@ namespace MyElectricCar.Models
         
         [JsonProperty("ev_range")]
         public int EvRange { get; set; }
+
+        public string VehicleName => string.Format("{0} {1}", Make, Model);
     }
 }
