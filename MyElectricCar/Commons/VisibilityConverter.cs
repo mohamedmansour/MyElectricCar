@@ -10,15 +10,18 @@
 //*********************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
 namespace MyElectricCar.Commons
 {
+
+    public enum VisibilityEnum
+    {
+        Not,
+        Normal
+    }
+
     /// <summary>
     /// Convert an object status to Visibility.Visible (true) or Visibility.Collapsed (false).
     /// Assists in avoiding having the view model keep references to UI types.
@@ -35,18 +38,28 @@ namespace MyElectricCar.Commons
         /// <returns>Visibility.Visible if value was a true bool, otherwise Visibility.Collapsed</returns>
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            var visiblityAction = VisibilityEnum.Normal;
+            if (parameter != null)
+            {
+                Enum.TryParse(parameter.ToString(), out visiblityAction);
+            }
+
+            var visibility = Visibility.Collapsed;
             if (value is bool)
             {
-                if((bool)value == true)
+                if ((bool)value == true)
                 {
-                    return Visibility.Visible;
+                    visibility = Visibility.Visible;
                 }
             }
             else if (value != null)
             {
-                return Visibility.Visible;
+                visibility = Visibility.Visible;
             }
-            return Visibility.Collapsed;
+
+            return visiblityAction == VisibilityEnum.Normal ?
+                        visibility : (visibility == Visibility.Visible ?
+                                            Visibility.Collapsed : Visibility.Visible);
         }
 
         /// <summary>

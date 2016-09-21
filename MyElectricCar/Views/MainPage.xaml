@@ -12,7 +12,7 @@
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <RelativePanel Grid.Row="0">
@@ -26,12 +26,20 @@
 
             <StackPanel Orientation="Vertical"
                         RelativePanel.Below="DisconnectButton" 
-                        Visibility="{Binding ChargingCurrent, Converter={StaticResource VisibilityConverter}}">
-                <TextBlock FontSize="18" FontWeight="Bold">
-                            <Run Text="{Binding ChargingCurrent.CompanyName}" />
-                            <Run Text="{Binding ChargingCurrent.Address1}" />
-                            <Run Text="{Binding ChargingCurrent.City}" />
-                </TextBlock>
+                        Visibility="{Binding ChargingCurrent,
+                                Converter={StaticResource VisibilityConverter},
+                                ConverterParameter='Not'}">
+                <TextBlock Text="Not charging"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        RelativePanel.Below="DisconnectButton" 
+                        Visibility="{Binding ChargingCurrent,
+                                Converter={StaticResource VisibilityConverter}}">
+                <TextBlock Text="{Binding ChargingCurrent.CompanyName}" />
+                <TextBlock Text="{Binding ChargingCurrent.Address1}" />
+                <TextBlock Text="{Binding ChargingCurrent.City}" />
+                <TextBlock Text="{Binding ChargingCurrent.PowerKw}" />
+                <TextBlock Text="{Binding ChargingCurrent.EnergyKwh}" />
                 <TextBlock Margin="20,0,0,0">
                             <Run Text="{Binding ChargingCurrent.PowerKw}" />
                             <Run Text="{Binding ChargingCurrent.EnergyKwh}" />
