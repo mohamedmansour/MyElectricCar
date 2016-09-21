@@ -104,6 +104,7 @@
     <Compile Include="Commons\NavigationService.cs" />
     <Compile Include="Commons\RelayCommand.cs" />
     <Compile Include="Commons\SuspensionManager.cs" />
+    <Compile Include="Commons\StringFormatConverter.cs" />
     <Compile Include="Commons\VisibilityConverter.cs" />
     <Compile Include="Models\ChargePointActivity.cs" />
     <Compile Include="Models\ChargePointActivityRequest.cs" />

@@ -4,4 +4,5 @@
     xmlns:commons="using:MyElectricCar.Commons">
 
     <commons:VisibilityConverter x:Key="VisibilityConverter" />
+    <commons:StringFormatConverter x:Key="StringFormatConverter" />
 </ResourceDictionary>
