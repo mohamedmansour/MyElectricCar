@@ -18,7 +18,7 @@
         <RelativePanel Grid.Row="0">
             <Image Source="https://bing.com/th?q=bmw+i3&amp;h=200&amp;w=500&amp;c=7&amp;rs=1&amp;qlt=100"
                    RelativePanel.AlignLeftWithPanel="True"
-                   RelativePanel.AlignRightWithPanel="True"/>
+                   RelativePanel.AlignRightWithPanel="True" Stretch="Fill"/>
             
             <Button x:Name="DisconnectButton"
                     Content="{Binding PrimaryVehicle.Make,
