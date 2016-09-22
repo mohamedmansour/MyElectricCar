@@ -14,9 +14,6 @@ namespace MyElectricCar
     {
         private IContainer _container;
 
-        /// <summary>
-        /// Set up all of the known view models, and instantiate the question repository.
-        /// </summary>
         public Locator()
         {
             var builder = new ContainerBuilder();
@@ -30,40 +27,16 @@ namespace MyElectricCar
             builder.RegisterType<ChargePointService>().As<ChargePointService>();
 
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
+            builder.RegisterType<HistoryViewModel>().As<IHistoryViewModel>();
             builder.RegisterType<ChargePointAuthViewModel>().As<IChargePointAuthViewModel>();
         }
 
-        /// <summary>
-        /// The ChargePointAuthView is databound to this property.
-        /// </summary>
-        public IChargePointAuthViewModel ChargePointAuthViewModel
-        {
-            get
-            {
-                return _container.Resolve<IChargePointAuthViewModel>();
-            }
-        }
+        public IChargePointAuthViewModel ChargePointAuthViewModel => _container.Resolve<IChargePointAuthViewModel>();
 
-        /// <summary>
-        /// The MainView is databound to this property.
-        /// </summary>
-        public IMainViewModel MainViewModel
-        {
-            get
-            {
-                return _container.Resolve<IMainViewModel>();
-            }
-        }
+        public IMainViewModel MainViewModel => _container.Resolve<IMainViewModel>();
 
-        /// <summary>
-        /// The ChargePointAuthView is databound to this property.
-        /// </summary>
-        public UserService UserService
-        {
-            get
-            {
-                return _container.Resolve<UserService>();
-            }
-        }
+        public IHistoryViewModel HistoryViewModel => _container.Resolve<IHistoryViewModel>();
+
+        public UserService UserService => _container.Resolve<UserService>();
     }
 }
