@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MyElectricCar.Models
+namespace MyElectricCar.Shared.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class ChargePointChargingSession

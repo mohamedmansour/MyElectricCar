@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyElectricCar</RootNamespace>
     <AssemblyName>MyElectricCar</AssemblyName>
-    <DefaultLanguage>en</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
@@ -93,6 +93,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -106,15 +107,7 @@
     <Compile Include="Commons\SuspensionManager.cs" />
     <Compile Include="Commons\StringFormatConverter.cs" />
     <Compile Include="Commons\VisibilityConverter.cs" />
-    <Compile Include="Models\ChargePointActivity.cs" />
-    <Compile Include="Models\ChargePointActivityRequest.cs" />
-    <Compile Include="Models\ChargePointAuth.cs" />
-    <Compile Include="Models\ChargePointAuthResponse.cs" />
-    <Compile Include="Models\ChargePointAuthRequest.cs" />
     <Compile Include="Commons\LocalStorageHelper.cs" />
-    <Compile Include="Models\ChargePointActivityResponse.cs" />
-    <Compile Include="Models\ChargePointChargingSession.cs" />
-    <Compile Include="Models\ChargePointVehicleInfo.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />
     <Compile Include="Services\ChargePointService.cs" />
@@ -179,7 +172,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MyElectricCar.Shared\MyElectricCar.Shared.csproj">
+      <Project>{07c105c3-52e5-44de-a2fc-031ca6ffb1f6}</Project>
+      <Name>MyElectricCar.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

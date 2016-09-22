@@ -1,4 +1,4 @@
-﻿using MyElectricCar.Models;
+﻿using MyElectricCar.Shared.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 

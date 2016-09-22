@@ -1,4 +1,4 @@
-﻿using MyElectricCar.Models;
+﻿using MyElectricCar.Shared.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;

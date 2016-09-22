@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace MyElectricCar.Models
+namespace MyElectricCar.Shared.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class ChargePointActivityResponse

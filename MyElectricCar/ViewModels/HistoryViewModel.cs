@@ -1,9 +1,7 @@
-﻿using MyElectricCar.Commons;
-using MyElectricCar.Models;
-using MyElectricCar.Services;
+﻿using MyElectricCar.Services;
+using MyElectricCar.Shared.Models;
 using MyElectricCar.ViewModels.Interfaces;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 
 namespace MyElectricCar.ViewModels
@@ -13,11 +11,7 @@ namespace MyElectricCar.ViewModels
         private readonly UserService _userService;
         private readonly ChargePointService _chargePointService;
 
-        private ICommand _disconnectCommand;
-
-        private ChargePointChargingSession _chargingCurrent;
         private ObservableCollection<ChargePointChargingSession> _chargingHistory;
-        private ChargePointVehicleInfo _primaryVehicle;
 
         public HistoryViewModel(UserService userService, ChargePointService chargePointService)
         {

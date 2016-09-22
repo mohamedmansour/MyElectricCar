@@ -1,6 +1,6 @@
 ﻿using MyElectricCar.Commons;
-using MyElectricCar.Models;
 using MyElectricCar.Services;
+using MyElectricCar.Shared.Models;
 using MyElectricCar.ViewModels.Interfaces;
 using System.Collections.ObjectModel;
 using System.Linq;

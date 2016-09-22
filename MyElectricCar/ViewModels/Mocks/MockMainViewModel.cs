@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using MyElectricCar.Models;
 using MyElectricCar.ViewModels.Interfaces;
+using MyElectricCar.Shared.Models;
 
 namespace MyElectricCar.ViewModels.Mocks
 {
