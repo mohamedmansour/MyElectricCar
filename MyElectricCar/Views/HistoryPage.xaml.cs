@@ -16,10 +16,10 @@ namespace MyElectricCar.Views
 
         public HistoryPage()
         {
-            this.InitializeComponent();
-            this._navigationHelper = new NavigationHelper(this);
-            this._navigationHelper.LoadState += navigationHelper_LoadState;
-            this._navigationHelper.SaveState += navigationHelper_SaveState;
+            InitializeComponent();
+            _navigationHelper = new NavigationHelper(this);
+            _navigationHelper.LoadState += navigationHelper_LoadState;
+            _navigationHelper.SaveState += navigationHelper_SaveState;
         }
 
         /// <summary>

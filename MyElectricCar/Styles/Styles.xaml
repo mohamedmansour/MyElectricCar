@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:commons="using:MyElectricCar.Commons">
+    xmlns:commons="using:MyElectricCar.Converters">
 
     <commons:VisibilityConverter x:Key="VisibilityConverter" />
     <commons:StringFormatConverter x:Key="StringFormatConverter" />

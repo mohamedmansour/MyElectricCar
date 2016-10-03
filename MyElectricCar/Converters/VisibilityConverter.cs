@@ -13,7 +13,7 @@ using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace MyElectricCar.Commons
+namespace MyElectricCar.Converters
 {
 
     public enum VisibilityEnum

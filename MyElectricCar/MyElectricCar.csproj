@@ -105,8 +105,8 @@
     <Compile Include="Commons\NavigationService.cs" />
     <Compile Include="Commons\RelayCommand.cs" />
     <Compile Include="Commons\SuspensionManager.cs" />
-    <Compile Include="Commons\StringFormatConverter.cs" />
-    <Compile Include="Commons\VisibilityConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Commons\LocalStorageHelper.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />

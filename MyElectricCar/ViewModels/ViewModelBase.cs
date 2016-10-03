@@ -20,7 +20,7 @@ namespace MyElectricCar.ViewModels
         /// <param name="propertyName">The full, case-sensitive, name of a property.</param>
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
+            PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
                 PropertyChangedEventArgs args = new PropertyChangedEventArgs(propertyName);

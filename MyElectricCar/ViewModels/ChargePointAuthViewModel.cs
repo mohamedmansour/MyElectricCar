@@ -61,7 +61,7 @@ namespace MyElectricCar.ViewModels
 
         private async void Connect(object parameter)
         {
-            var auth = await _chargePointService.AuthenticateAsync(this.Username, this.Password);
+            var auth = await _chargePointService.AuthenticateAsync(Username, Password);
             if (auth.Status)
             {
                 _userService.AccessToken = auth.AuthToken;
