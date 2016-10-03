@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace MyElectricCar.Services
 {
-    public class ChargePointService : IChargePointService
+    public class ChargePointService : IElectricChargeService
     {
         private readonly HttpClient _client = new HttpClient();
 

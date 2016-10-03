@@ -9,7 +9,7 @@ namespace MyElectricCar.ViewModels
 {
     public class ChargePointAuthViewModel : ViewModelBase, IChargePointAuthViewModel
     {
-        private readonly IChargePointService _chargePointService;
+        private readonly IElectricChargeService _chargePointService;
         private readonly IUserService _userService;
         private readonly INavigationService _navigationService;
 
@@ -17,7 +17,7 @@ namespace MyElectricCar.ViewModels
         private string _username;
         private string _password;
 
-        public ChargePointAuthViewModel(IChargePointService chargePointService, IUserService userService, INavigationService navigationService)
+        public ChargePointAuthViewModel(IElectricChargeService chargePointService, IUserService userService, INavigationService navigationService)
         {
             _chargePointService = chargePointService;
             _userService = userService;

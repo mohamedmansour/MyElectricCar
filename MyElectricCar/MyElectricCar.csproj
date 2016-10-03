@@ -92,6 +92,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="AppSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="AppSettings.json.default" />
     <None Include="project.json" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
@@ -100,6 +104,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commons\DateTimeOffsetConverter.cs" />
+    <Compile Include="Services\BingImageSearchService.cs" />
+    <Compile Include="Services\ConfigService.cs" />
+    <Compile Include="Services\Interfaces\IConfigService.cs" />
+    <Compile Include="Services\Interfaces\IImageSearchService.cs" />
     <Compile Include="Services\Interfaces\INavigationService.cs" />
     <Compile Include="Commons\NavigationHelper.cs" />
     <Compile Include="Services\NavigationService.cs" />
@@ -108,7 +116,7 @@
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Commons\LocalStorageHelper.cs" />
-    <Compile Include="Services\Interfaces\IChargePointService.cs" />
+    <Compile Include="Services\Interfaces\IElectricChargeService.cs" />
     <Compile Include="Services\Interfaces\IUserService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />

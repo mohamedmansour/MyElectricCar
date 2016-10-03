@@ -11,8 +11,9 @@ namespace MyElectricCar.ViewModels
     public class MainViewModel : ViewModelBase, IMainViewModel
     {
         private readonly IUserService _userService;
-        private readonly IChargePointService _chargePointService;
+        private readonly IElectricChargeService _chargePointService;
         private readonly INavigationService _navigationService;
+        private readonly IImageSearchService _imageService;
 
         private ICommand _disconnectCommand;
 
@@ -20,11 +21,15 @@ namespace MyElectricCar.ViewModels
         private ObservableCollection<ChargePointChargingSession> _chargingHistory;
         private ChargePointVehicleInfo _primaryVehicle;
 
-        public MainViewModel(IUserService userService, IChargePointService chargePointService, INavigationService navigationService)
+        public MainViewModel(IUserService userService,
+                             IElectricChargeService chargePointService,
+                             INavigationService navigationService,
+                             IImageSearchService imageService)
         {
             _userService = userService;
             _chargePointService = chargePointService;
             _navigationService = navigationService;
+            _imageService = imageService;
         }
 
         public ICommand DisconnectCommand

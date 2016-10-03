@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\ChargePointActivity.cs" />
     <Compile Include="Models\ChargePointActivityRequest.cs" />
     <Compile Include="Models\ChargePointActivityResponse.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Models\ChargePointAuthResponse.cs" />
     <Compile Include="Models\ChargePointChargingSession.cs" />
     <Compile Include="Models\ChargePointVehicleInfo.cs" />
+    <Compile Include="Models\ImageSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\MyElectricCar.Shared.rd.xml" />
   </ItemGroup>

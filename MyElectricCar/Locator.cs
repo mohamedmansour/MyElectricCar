@@ -26,9 +26,11 @@ namespace MyElectricCar
 
         private void RegisterTypes(ContainerBuilder builder)
         {
+            builder.RegisterType<ConfigService>().As<IConfigService>().SingleInstance().AutoActivate();
             builder.Register(c => new NavigationService(Window.Current.Content as Frame)).As<INavigationService>().SingleInstance();
             builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
-            builder.RegisterType<ChargePointService>().As<IChargePointService>().SingleInstance();
+            builder.RegisterType<ChargePointService>().As<IElectricChargeService>().SingleInstance();
+            builder.RegisterType<BingImageSearchService>().As<IImageSearchService>().SingleInstance();
 
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
             builder.RegisterType<HistoryViewModel>().As<IHistoryViewModel>();

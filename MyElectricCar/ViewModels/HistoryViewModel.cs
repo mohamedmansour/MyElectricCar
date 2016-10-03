@@ -8,11 +8,11 @@ namespace MyElectricCar.ViewModels
     public class HistoryViewModel : ViewModelBase, IHistoryViewModel
     {
         private readonly IUserService _userService;
-        private readonly IChargePointService _chargePointService;
+        private readonly IElectricChargeService _chargePointService;
 
         private ObservableCollection<ChargePointChargingSession> _chargingHistory;
 
-        public HistoryViewModel(IUserService userService, IChargePointService chargePointService)
+        public HistoryViewModel(IUserService userService, IElectricChargeService chargePointService)
         {
             _userService = userService;
             _chargePointService = chargePointService;
