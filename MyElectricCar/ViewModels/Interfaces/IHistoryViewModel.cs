@@ -1,5 +1,5 @@
-﻿using MyElectricCar.Shared.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using MyElectricCar.Shared.Models;
 
 namespace MyElectricCar.ViewModels.Interfaces
 {

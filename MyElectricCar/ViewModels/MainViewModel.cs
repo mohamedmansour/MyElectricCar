@@ -1,10 +1,10 @@
-﻿using MyElectricCar.Commons;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
+using MyElectricCar.Commons;
 using MyElectricCar.Services;
 using MyElectricCar.Shared.Models;
 using MyElectricCar.ViewModels.Interfaces;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Input;
 
 namespace MyElectricCar.ViewModels
 {

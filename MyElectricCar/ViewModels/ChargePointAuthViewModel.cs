@@ -1,8 +1,8 @@
-﻿using MyElectricCar.Commons;
+﻿using System;
+using System.Windows.Input;
+using MyElectricCar.Commons;
 using MyElectricCar.Services;
 using MyElectricCar.ViewModels.Interfaces;
-using System;
-using System.Windows.Input;
 using Windows.UI.Popups;
 
 namespace MyElectricCar.ViewModels

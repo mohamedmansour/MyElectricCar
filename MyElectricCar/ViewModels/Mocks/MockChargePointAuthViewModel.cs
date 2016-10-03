@@ -1,5 +1,5 @@
-﻿using MyElectricCar.ViewModels.Interfaces;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using MyElectricCar.ViewModels.Interfaces;
 
 namespace MyElectricCar.ViewModels.Mocks
 {

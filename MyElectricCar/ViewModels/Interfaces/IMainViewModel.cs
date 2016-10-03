@@ -1,6 +1,6 @@
-﻿using MyElectricCar.Shared.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using MyElectricCar.Shared.Models;
 
 namespace MyElectricCar.ViewModels.Interfaces
 {
