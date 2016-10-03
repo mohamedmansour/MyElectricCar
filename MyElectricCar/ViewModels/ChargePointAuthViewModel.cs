@@ -9,16 +9,19 @@ namespace MyElectricCar.ViewModels
 {
     public class ChargePointAuthViewModel : ViewModelBase, IChargePointAuthViewModel
     {
+        private readonly IChargePointService _chargePointService;
+        private readonly IUserService _userService;
+        private readonly INavigationService _navigationService;
+
         private ICommand _connectCommand;
         private string _username;
         private string _password;
-        private readonly IChargePointService _chargePointService;
-        private readonly IUserService _userService;
 
-        public ChargePointAuthViewModel(IChargePointService chargePointService, IUserService userService)
+        public ChargePointAuthViewModel(IChargePointService chargePointService, IUserService userService, INavigationService navigationService)
         {
             _chargePointService = chargePointService;
             _userService = userService;
+            _navigationService = navigationService;
         }
 
         public ICommand ConnectCommand
@@ -66,7 +69,7 @@ namespace MyElectricCar.ViewModels
             {
                 _userService.AccessToken = auth.AuthToken;
                 _userService.Id = long.Parse(auth.UserId);
-                App.NavigationService.Navigate<Views.MainPage>();
+                _navigationService.Navigate<Views.MainPage>();
             }
             else
             {

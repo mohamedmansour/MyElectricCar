@@ -27,12 +27,6 @@ namespace MyElectricCar
         }
 
         /// <summary>
-        /// Navigation service, provides a decoupled way to trigger the UI Frame
-        /// to transition between views.
-        /// </summary>
-        public static NavigationService NavigationService { get; private set; }
-
-        /// <summary>
         /// Gets access to all the services view models.
         /// </summary>
         public Locator ServiceLocator
@@ -55,8 +49,6 @@ namespace MyElectricCar
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-                NavigationService = new NavigationService(rootFrame);
-
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
@@ -75,11 +67,11 @@ namespace MyElectricCar
             {
                 if (ServiceLocator.UserService.IsAuthenticated)
                 {
-                    rootFrame.Navigate(typeof(Views.MainPage), e.Arguments);
+                    ServiceLocator.NavigationService.Navigate<Views.MainPage>(e.Arguments);
                 }
                 else
                 {
-                    rootFrame.Navigate(typeof(Views.ChargePointAuthView), e.Arguments);
+                    ServiceLocator.NavigationService.Navigate<Views.ChargePointAuthView>(e.Arguments);
                 }
             }
 

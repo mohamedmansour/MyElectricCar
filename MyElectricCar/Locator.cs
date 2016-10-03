@@ -3,6 +3,8 @@ using MyElectricCar.Services;
 using MyElectricCar.Services.Interfaces;
 using MyElectricCar.ViewModels;
 using MyElectricCar.ViewModels.Interfaces;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace MyElectricCar
 {
@@ -24,8 +26,9 @@ namespace MyElectricCar
 
         private void RegisterTypes(ContainerBuilder builder)
         {
-            builder.RegisterType<UserService>().As<IUserService>();
-            builder.RegisterType<ChargePointService>().As<IChargePointService>();
+            builder.Register(c => new NavigationService(Window.Current.Content as Frame)).As<INavigationService>().SingleInstance();
+            builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
+            builder.RegisterType<ChargePointService>().As<IChargePointService>().SingleInstance();
 
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
             builder.RegisterType<HistoryViewModel>().As<IHistoryViewModel>();
@@ -39,5 +42,7 @@ namespace MyElectricCar
         public IHistoryViewModel HistoryViewModel => _container.Resolve<IHistoryViewModel>();
 
         public IUserService UserService => _container.Resolve<IUserService>();
+
+        public INavigationService NavigationService => _container.Resolve<INavigationService>();
     }
 }

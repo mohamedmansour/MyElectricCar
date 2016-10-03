@@ -100,9 +100,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commons\DateTimeOffsetConverter.cs" />
-    <Compile Include="Commons\INavigationService.cs" />
+    <Compile Include="Services\Interfaces\INavigationService.cs" />
     <Compile Include="Commons\NavigationHelper.cs" />
-    <Compile Include="Commons\NavigationService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Commons\RelayCommand.cs" />
     <Compile Include="Commons\SuspensionManager.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />

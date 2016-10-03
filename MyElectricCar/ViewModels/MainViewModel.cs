@@ -12,6 +12,7 @@ namespace MyElectricCar.ViewModels
     {
         private readonly IUserService _userService;
         private readonly IChargePointService _chargePointService;
+        private readonly INavigationService _navigationService;
 
         private ICommand _disconnectCommand;
 
@@ -19,10 +20,11 @@ namespace MyElectricCar.ViewModels
         private ObservableCollection<ChargePointChargingSession> _chargingHistory;
         private ChargePointVehicleInfo _primaryVehicle;
 
-        public MainViewModel(IUserService userService, IChargePointService chargePointService)
+        public MainViewModel(IUserService userService, IChargePointService chargePointService, INavigationService navigationService)
         {
             _userService = userService;
             _chargePointService = chargePointService;
+            _navigationService = navigationService;
         }
 
         public ICommand DisconnectCommand
@@ -96,7 +98,7 @@ namespace MyElectricCar.ViewModels
         private void Disconnect(object parameter)
         {
             _userService.Clear();
-            App.NavigationService.Navigate<Views.ChargePointAuthView>();
+            _navigationService.Navigate<Views.ChargePointAuthView>();
         }
     }
 }
