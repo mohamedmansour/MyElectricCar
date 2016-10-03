@@ -1,11 +1,12 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
+using MyElectricCar.Services.Interfaces;
 using MyElectricCar.Shared.Models;
 using Newtonsoft.Json;
 
 namespace MyElectricCar.Services
 {
-    public class ChargePointService
+    public class ChargePointService : IChargePointService
     {
         private readonly HttpClient _client = new HttpClient();
 

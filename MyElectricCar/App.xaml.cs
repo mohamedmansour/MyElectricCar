@@ -37,7 +37,7 @@ namespace MyElectricCar
         /// </summary>
         public Locator ServiceLocator
         {
-            get { return this.Resources["Locator"] as Locator; }
+            get { return Resources["Locator"] as Locator; }
         }
 
         /// <summary>

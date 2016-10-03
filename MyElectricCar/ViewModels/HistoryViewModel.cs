@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using MyElectricCar.Services;
+using MyElectricCar.Services.Interfaces;
 using MyElectricCar.Shared.Models;
 using MyElectricCar.ViewModels.Interfaces;
 
@@ -8,12 +7,12 @@ namespace MyElectricCar.ViewModels
 {
     public class HistoryViewModel : ViewModelBase, IHistoryViewModel
     {
-        private readonly UserService _userService;
-        private readonly ChargePointService _chargePointService;
+        private readonly IUserService _userService;
+        private readonly IChargePointService _chargePointService;
 
         private ObservableCollection<ChargePointChargingSession> _chargingHistory;
 
-        public HistoryViewModel(UserService userService, ChargePointService chargePointService)
+        public HistoryViewModel(IUserService userService, IChargePointService chargePointService)
         {
             _userService = userService;
             _chargePointService = chargePointService;

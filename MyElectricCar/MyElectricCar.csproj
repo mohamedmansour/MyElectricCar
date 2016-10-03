@@ -108,6 +108,8 @@
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Commons\LocalStorageHelper.cs" />
+    <Compile Include="Services\Interfaces\IChargePointService.cs" />
+    <Compile Include="Services\Interfaces\IUserService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\ChargePointAuthViewModel.cs" />
     <Compile Include="Services\ChargePointService.cs" />

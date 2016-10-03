@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using MyElectricCar.Services;
+using MyElectricCar.Services.Interfaces;
 using MyElectricCar.ViewModels;
 using MyElectricCar.ViewModels.Interfaces;
 
@@ -23,8 +24,8 @@ namespace MyElectricCar
 
         private void RegisterTypes(ContainerBuilder builder)
         {
-            builder.RegisterType<UserService>().As<UserService>();
-            builder.RegisterType<ChargePointService>().As<ChargePointService>();
+            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<ChargePointService>().As<IChargePointService>();
 
             builder.RegisterType<MainViewModel>().As<IMainViewModel>();
             builder.RegisterType<HistoryViewModel>().As<IHistoryViewModel>();
@@ -37,6 +38,6 @@ namespace MyElectricCar
 
         public IHistoryViewModel HistoryViewModel => _container.Resolve<IHistoryViewModel>();
 
-        public UserService UserService => _container.Resolve<UserService>();
+        public IUserService UserService => _container.Resolve<IUserService>();
     }
 }

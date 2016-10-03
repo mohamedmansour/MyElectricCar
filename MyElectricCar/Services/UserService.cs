@@ -1,9 +1,10 @@
 ﻿using System;
 using MyElectricCar.Commons;
+using MyElectricCar.Services.Interfaces;
 
 namespace MyElectricCar.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private const string SettingAccessToken = "AuthAcessToken";
         private const string SettingUserId = "AuthUserId";
@@ -12,7 +13,7 @@ namespace MyElectricCar.Services
         {
             get
             {
-                return String.IsNullOrWhiteSpace(AccessToken) ? false : true;
+                return string.IsNullOrWhiteSpace(AccessToken) ? false : true;
             }
         }
 

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Input;
 using MyElectricCar.Commons;
-using MyElectricCar.Services;
+using MyElectricCar.Services.Interfaces;
 using MyElectricCar.Shared.Models;
 using MyElectricCar.ViewModels.Interfaces;
 
@@ -10,8 +10,8 @@ namespace MyElectricCar.ViewModels
 {
     public class MainViewModel : ViewModelBase, IMainViewModel
     {
-        private readonly UserService _userService;
-        private readonly ChargePointService _chargePointService;
+        private readonly IUserService _userService;
+        private readonly IChargePointService _chargePointService;
 
         private ICommand _disconnectCommand;
 
@@ -19,7 +19,7 @@ namespace MyElectricCar.ViewModels
         private ObservableCollection<ChargePointChargingSession> _chargingHistory;
         private ChargePointVehicleInfo _primaryVehicle;
 
-        public MainViewModel(UserService userService, ChargePointService chargePointService)
+        public MainViewModel(IUserService userService, IChargePointService chargePointService)
         {
             _userService = userService;
             _chargePointService = chargePointService;
